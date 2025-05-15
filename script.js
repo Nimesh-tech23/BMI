@@ -12,29 +12,23 @@ document.getElementById("bmi-form").addEventListener("submit", function(e) {
     }
     const heightInMeters = height / 100; 
     const bmi = weight / (heightInMeters * heightInMeters).toFixed(2);
-
+    let resultText = "";
     if (bmi < 18.5) {
-        result.textContent += " You are underweight.";
+        resultText= " You are underweight.";
         result.style.color = "blue";
     } else if (bmi >= 18.5 && bmi < 24.9) {
-        result.textContent += " You have a normal weight.";
+        resultText= " You have a normal weight.";
         result.style.color = "green";
     } else if (bmi >= 25 && bmi < 29.9) {
-        result.textContent += " You are overweight.";
+        resultText= " You are overweight.";
         result.style.color = "orange";
     } else {
-        result.textContent += " You are obese.";
+        resultText= " You are obese.";
         result.style.color = "red";
     }
 
     // Display the result
-    result.textContent = `Your BMI is ${bmi.toFixed(2)}.` + result.textContent;
-
-    result.style.transform = "scale(1.1)";
-    setTimeout(() => {
-        result.style.transform = "scale(1)";
-    }, 300);
-
+    result.textContent = `Your BMI is ${bmi.toFixed(2)} ${resultText}`;
 }
 
 );
